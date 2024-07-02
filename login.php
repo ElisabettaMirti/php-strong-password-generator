@@ -2,26 +2,43 @@
 
 $users = [
     [
-        "user" => "Edmond",
+        "username" => "Edmond",
         "password" => "Montecristo"
     ],
     [
-        "user" => "Jekyll",
+        "username" => "Jekyll",
         "password" => "MrHyde"
     ],
     [
-        "user" => "Beatrix",
+        "username" => "Beatrix",
         "password" => "Bride"
     ],
     [
-        "user" => "Michelangelo",
+        "username" => "Michelangelo",
         "password" => "Caravaggio"
     ],
     [
-        "user" => "Shinji",
+        "username" => "Shinji",
         "password" => "Evangelion"
     ],
 ];
+
+session_start();
+
+
+if (isset($_POST["username"]) && isset($_POST["password"])){
+    foreach ($users as $user) {
+        if ($user["username"] === $_POST["username"]){
+            if ($user["password"] === $_POST["password"]) {
+                $_SESSION["username"] = $_POST["username"];
+                $_SESSION["password"] = $_POST["password"];
+                $_SESSION["logged"] = true;
+                Header("Location: ./index.php");
+                break;
+            }
+        }
+    }
+}
 
 ?>
 
