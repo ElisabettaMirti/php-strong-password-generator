@@ -25,6 +25,10 @@ $users = [
 
 session_start();
 
+if (isset($_SESSION["logged"]) && $_SESSION["logged"] === true){
+    Header("Location: ./index.php");
+}
+
 
 if (isset($_POST["username"]) && isset($_POST["password"])){
     foreach ($users as $user) {
