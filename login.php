@@ -64,6 +64,9 @@ if (isset($_POST["username"]) && isset($_POST["password"])){
                 <input type="text" name="password" id="password">
             </div>
             <button type="submit">Login</button>
+            <?php  if (!isset($_SESSION["logged"])){ ?>
+                <pre>Wrong username or password</pre>
+            <?php } ?>
         </form>
     </main>
 </body>

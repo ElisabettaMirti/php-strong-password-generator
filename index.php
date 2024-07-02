@@ -16,7 +16,7 @@ session_start();
         <h1>Logged in!</h1>
         <?php } else { ?>
 
-        <h1>Sorry, wrong username or password</h1>
+        <h1>Sorry, you can't log in</h1>
 
         <?php } ?>
     </main>
